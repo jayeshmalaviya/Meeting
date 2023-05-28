@@ -1,0 +1,132 @@
+{
+	"info": {
+		"_postman_id": "560e17fc-8507-4370-99c7-3081ef71e86e",
+		"name": "meeting",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26461028"
+	},
+	"item": [
+		{
+			"name": "add meeting",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"meeting owner 2\",\r\n    \"startTime\": \"2023-05-25T17:00:00\",\r\n    \"endTime\": \"2023-05-25T20:00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/api/meetings/2/book",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"api",
+						"meetings",
+						"2",
+						"book"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "free slots",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"meeting about 1\",\r\n    \"startTime\": \"2023-05-25T09:00:00\",\r\n    \"endTime\": \"2023-05-25T10:00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/api/meetings/freeSlots?employeeId1=1&employeeId2=2&duration=45",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"api",
+						"meetings",
+						"freeSlots"
+					],
+					"query": [
+						{
+							"key": "employeeId1",
+							"value": "1"
+						},
+						{
+							"key": "employeeId2",
+							"value": "2"
+						},
+						{
+							"key": "duration",
+							"value": "45"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "conflict",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"meeting about 1\",\r\n    \"startTime\": \"2023-05-25T09:00:00\",\r\n    \"endTime\": \"2023-05-25T10:00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/api/meetings/freeSlots?employeeId1=1&employeeId2=2&duration=30",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"api",
+						"meetings",
+						"freeSlots"
+					],
+					"query": [
+						{
+							"key": "employeeId1",
+							"value": "1"
+						},
+						{
+							"key": "employeeId2",
+							"value": "2"
+						},
+						{
+							"key": "duration",
+							"value": "30"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
